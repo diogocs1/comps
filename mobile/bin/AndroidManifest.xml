@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.comps"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<!--         android:icon="@drawable/proesp" -->
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name2"
+         >
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name2" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".AbstractValidacaoActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".PernaDireitaActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".SentarAlcancarActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".LancamentoSimultaneoActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".PernaEsquerdaActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".ShuttleRun_20m_Activity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".ShuttleRun_10x5_Activity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".CorridaActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".AbdominaisActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".DobrasCutaneasActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".EquilibrioRetaguardaActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".ImpulsaoHorizontalActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".LancamentoUnilateralActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".MainAntropometriaActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".MainAptidaoFisicaActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".MainKTKActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".MedidasCorporaisActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".PerimetrosActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".PrensaoManualActivity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".SaltosLaterais15Activity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity
+            android:name=".TransposicoesLaterais20Activity"
+            android:label="@string/app_name2" >
+        </activity>
+        <activity 
+            android:name=".SelecaoActivity" 
+            android:label="@string/app_name2" >
+        </activity>
+        <activity 
+            android:name=".NaoListadoActivity"
+            android:label="@string/app_name2">
+        </activity>
+        <activity 
+            android:name=".ConfigConexaoActivity"
+            android:label="@string/app_name2">
+        </activity>
+    </application>
+
+</manifest>

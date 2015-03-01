@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<openerp>
+	<data>
+		<!-- CADASTRAR USUARIO - Action -->
+		<record id="cadastro_usuario_action" model="ir.actions.act_window">
+			<field name="name"> Usuários </field>
+			<field name="res_model">res.users</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+				Clique para cadastrar uma novo usuário
+				</p>
+				<p>
+				Clique em Menu ao lado para ver as opções
+				</p>
+			</field>
+		</record>
+		<!-- CADASTRAR USUARIO - tree -->
+		<record id="cadastro_usuario_tree" model="ir.ui.view">
+			<field name="name">Usuários</field>
+			<field name="model">res.users</field>
+			<field name="arch" type="xml">
+				<tree string="usuarios">
+					<field name="name"/>
+					<field name="login"/>
+					<field name="mobile"/>
+				</tree>
+			</field>
+		</record>
+		
+		<menuitem name="Início" id="menu_comps_root" sequence='0' />
+		
+		<menuitem name="Avaliações" parent="menu_comps_root" id="menu_avaliacoes" sequence='0'/>
+
+		<menuitem name="Antropometria" id="menu_avaliacoes_antropometria" parent="menu_avaliacoes" />
+
+		<menuitem name="Aptdão Física" id="menu_avaliacoes_aptfisica" parent="menu_avaliacoes" />
+
+		<menuitem name="KTK" id="menu_avaliacoes_ktk" parent="menu_avaliacoes" />
+		
+		<menuitem name="Configurações" parent="menu_comps_root" id="menu_configuracoes"/>
+		
+		<menuitem action="cadastro_usuario_action" id="menu_cadastro_usuario" 
+			parent="menu_configuracoes"
+			groups="base.comps_admin"/>
+	</data>
+</openerp>

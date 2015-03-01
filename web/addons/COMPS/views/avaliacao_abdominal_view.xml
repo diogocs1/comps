@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<openerp>
+    <data>
+    	<record id="comps_abdominal_tree_view" model="ir.ui.view">
+			<field name="name">Abdominais</field>
+			<field name="model">comps.av_abdominal</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Teste Abdominal">
+					<field name="name" />
+					<field name="aluno_id" />
+					<field name="escola_id" />
+					<field name="turma_id" />
+					<field name="quantidade_ab" />
+					<field name="tempo_ab" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="comps_abdominal_form_view" model="ir.ui.view">
+			<field name="name">Abdominais</field>
+			<field name="model">comps.av_abdominal</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="OpenERP Version 7" version="7.0">
+					<header>
+						<field name="state" widget="statusbar" />
+					</header>
+					<sheet>
+						<group string="Abdominais">
+							<group>
+								<field name="avaliador_id" attrs="{'readonly':[('avaliador_id','!=',False)]}" groups="base.comps_avaliador,base.comps_instituicao"/>
+								<field name="escola_id" domain="[('avaliador_ids.id','=',avaliador_id)]"/>
+								<field name="turma_id" domain="[('avaliador_ids.id','=',avaliador_id),('escola_id','=',escola_id)]"/>
+								<field name="aluno_id" domain="[('turma_ids','=',turma_id),('turma_ids.avaliador_ids.id','=',avaliador_id)]"/>
+							</group>
+							<group>
+								<field name="quantidade_ab" />
+								<field name="tempo_ab" class="tempo"/>
+								<field name="ab_por_minuto" />
+								<field name="create_date" readonly="1"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="comps_abdominal_search_view" model="ir.ui.view">
+			<field name="name">Abdominais</field>
+			<field name="model">comps.av_abdominal</field>
+			<field name="arch" type="xml">
+				<search string="Search">
+					<field name="name" string="Name" filter_domain="[()]" />
+					<field name="quantidade_ab" string="Name" filter_domain="[()]" />
+					<field name="tempo_ab" string="Name" filter_domain="[()]" />
+					<field name="avaliador_id" string="Name" filter_domain="[()]" />
+					<field name="escola_id" string="Name" filter_domain="[()]" />
+					<field name="turma_id" string="Name" filter_domain="[()]" />
+					<field name="aluno_id" string="Name" filter_domain="[()]" />
+					<field name="create_date" string="Name" filter_domain="[()]" />
+					<group expand="0" string="Agrupar por...">
+						<filter string="Classificação" domain="[]" context="{'group_by':'state'}"/>
+						<filter string="Avaliador" domain="[]" context="{'group_by':'avaliador_id'}" />
+						<filter string="Quantidade" domain="[]" context="{'group_by':'quantidade_ab'}" />
+						<filter string="Tempo" domain="[]" context="{'group_by':'tempo_ab'}" />
+						<filter string="Escola" domain="[]" context="{'group_by':'escola_id'}" />
+						<filter string="Turma" domain="[]" context="{'group_by':'turma_id'}" />
+						<filter string="Aluno" domain="[]" context="{'group_by':'aluno_id'}" />
+						<filter string="Data" domain="[]" context="{'group_by':'create_date'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+		<!-- GRAPH VIEW - Abdominal -->
+		<record model="ir.ui.view" id="comps_av_abdominal_view_graph">
+			<field name="name">comps.av_abdominal</field>
+			<field name="model">comps.av_abdominal</field>
+			<field name="arch" type="xml">
+				<graph string="Estatísticas" type="pie">
+					<field name="state" />
+				</graph>
+			</field>
+		</record>
+		
+        <record model="ir.actions.act_window" id="action_comps_nova_av_abdominal_form_view">
+            <field name="name">Nova avaliação</field>
+            <field name="res_model">comps.av_abdominal</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="comps_abdominal_form_view"/>
+        </record>
+
+		<record model="ir.actions.act_window" id="action_comps_abdominal_tree_view">
+			<field name="name">Abdominais</field>
+			<field name="res_model">comps.av_abdominal</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">graph,tree,form</field>
+			<field name="search_view_id" ref="comps_abdominal_search_view" />
+			<!-- <field name="domain">[('field_name','condition',criteria)]</field> -->
+			<field name="context">{}</field>
+		</record>
+		
+		<!-- REGRA VIEW - Classificação dos testes -->
+		
+		<record id="comps_abdominal_regra_tree_view" model="ir.ui.view">
+			<field name="name">comps.abdominal.regra.tree</field>
+			<field name="model">comps.abdominal.regra</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Regras">
+					<field name="genero" />
+					<field name="idade_inicial" />
+					<field name="idade_final" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="comps_abdominal_regra_form_view" model="ir.ui.view">
+			<field name="name">comps.abdominal.regra.form</field>
+			<field name="model">comps.abdominal.regra</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="Classificação" version="7.0">
+					<sheet>
+						<div class="bs-callout bs-callout-warning">
+							<p>Os valores informados estão no formato "abdominais/minuto"</p>
+						</div>
+						<group>
+							<group string="Faixa Etária">
+								<field name="genero" />
+								<field name="idade_inicial" />
+								<field name="idade_final" />
+							</group>
+							<group string="Fraco">
+								<field name="fraco" />
+							</group>
+							<group string="Abaixo da média">
+								<field name="abaixo_da_media1" />
+								<field name="abaixo_da_media2" />
+							</group>
+							<group string="Média">
+								<field name="media1" />
+								<field name="media2" />
+							</group>
+							<group string="Acima da média">
+								<field name="acima_da_media1" />
+								<field name="acima_da_media2" />
+							</group>
+							<group string="Excelente">
+								<field name="excelente" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_comps_abdominal_regra_tree_view">
+			<field name="name">Regra de classificação</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">comps.abdominal.regra</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+    
+    	<menuitem 
+    	id="comps_av_abdominal_menu_root" 
+    	name="Abdominais" 
+    	groups="base.comps_avaliador,base.comps_instituicao,base.comps_admin"
+    	parent="menu_avaliacoes_aptfisica"/>
+    	
+    	<menuitem 
+    	id="comps_nova_av_abdominal_menu" 
+    	name="Nova Avaliação" 
+    	parent="comps_av_abdominal_menu_root" 
+    	action="action_comps_nova_av_abdominal_form_view"
+    	sequence="1"/>
+    	
+    	<menuitem 
+    	id="comps_av_abdominal_menu" 
+    	name="Avaliações" 
+    	parent="comps_av_abdominal_menu_root" 
+    	groups="base.comps_avaliador,base.comps_instituicao,base.comps_admin"
+    	action="action_comps_abdominal_tree_view"
+    	sequence="0"/>
+    	
+    	<menuitem 
+    	id="comps_abdominal_regra_menu" 
+    	name="Regra de classificação" 
+    	parent="comps_av_abdominal_menu_root" 
+    	groups="base.comps_admin"
+    	action="action_comps_abdominal_regra_tree_view"
+    	sequence="2"/>
+    
+    </data>
+</openerp>

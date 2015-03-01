@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+		<template>
+			<t t-name="CompsLayout">
+				<div class="openerp openerp_webclient_container">
+				<table class="oe_webclient">
+					<tr id="top-bar">
+						<td colspan="2" class="navbar navbar-default navbar-fixed-top oe_navbar" role="navigation">
+							<a class="oe_logo" t-attf-href="/web?#{debug}">
+								<span class="oe_logo_edit">Edit Company data</span>
+								<div id="logo"></div>
+							</a>
+							<div class="oe_menu_placeholder"/>
+							<div class="oe_user_menu_placeholder"/>
+							<div class="oe_systray"/>
+						</td>
+					</tr>
+					<tr id="app">
+						<td class="oe_leftbar" valign="top">
+							<div id="menu-opcoes">
+								<t t-set="debug" t-value="__debug__ ? '&amp;debug' : ''"/>
+								<div class="oe_secondary_menus_container"/>
+							</div>
+							<a id="botao-menu-opcoes">
+								<span class="glyphicon glyphicon-list">\ Menu </span>
+							</a>
+						</td>
+						<td class="oe_application">
+						</td>
+					</tr>
+				</table>
+				</div>
+			</t>
+			<t t-name="MenuUsuario">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<img class="oe_topbar_avatar" t-att-data-default-src="_s + '/web/static/src/img/user_menu_avatar.png'"/>
+							<span class="oe_topbar_name"/> <b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#" data-menu="settings">Preferences</a></li>
+							<li><a href="#" data-menu="logout">Log out</a></li>
+						</ul>
+					</li>
+				</ul>
+			</t>
+		</template>
+    </data>
+</openerp>

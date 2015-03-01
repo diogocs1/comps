@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+	
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+	    <TextView 
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:text="Avaliações>Antropometria"/>
+	</LinearLayout>
+	
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" > 
+
+        <Button
+            android:id="@+id/btMedidasCorporais"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Medidas Corporais" />
+
+        <Button
+            android:id="@+id/btPerimetros"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Perimetros" />
+
+        <Button
+            android:id="@+id/btDobrasCutaneas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Dobras Cutâneas" />
+
+    </LinearLayout>
+
+</RelativeLayout>

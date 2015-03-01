@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+	<TextView 
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:text="Avaliações>KTK>Equilíbrio à Retaguarda"/>
+	    
+	</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="20dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Código" />
+
+        <EditText
+            android:id="@+id/etCodigo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:singleLine="true" >
+
+            <requestFocus />
+        </EditText>
+        
+		 <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Barra 1(6cm)"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            
+	        <Spinner
+	            android:id="@+id/spnT1B1"
+	            android:layout_width="75dp"
+	            android:layout_height="wrap_content"/>
+	        
+	        <Spinner
+	            android:id="@+id/spnT1B2"
+	            android:layout_width="75dp"
+	            android:layout_height="wrap_content"/>
+	            
+
+	        <Spinner
+	            android:id="@+id/spnT1B3"
+	            android:layout_width="75dp"
+	            android:layout_height="wrap_content"
+	            />
+	        <EditText 
+	            android:id="@+id/etR1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:inputType="numberDecimal"
+	            />
+	        
+        </LinearLayout>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Barra 2(4,5cm)"/>
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+           	
+           	<Spinner
+	            android:id="@+id/spnT2B1"
+	            android:layout_width="75dp"
+	            android:layout_height="wrap_content"/>
+	        
+	        <Spinner
+	            android:id="@+id/spnT2B2"
+	            android:layout_width="75dp"
+	            android:layout_height="wrap_content"/>
+	            
+
+	        <Spinner
+	            android:id="@+id/spnT2B3"
+	            android:layout_width="75dp"
+	            android:layout_height="wrap_content"/>
+	        
+	        <EditText 
+	            
+	            android:id="@+id/etR2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:inputType="numberDecimal"
+	            />
+	        
+            
+        </LinearLayout>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Barra 3(4,5cm)"/>
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+           	
+           	<Spinner
+	            android:id="@+id/spnT3B1"
+	            android:layout_width="75dp"
+	            android:layout_height="wrap_content"/>
+	        
+	        <Spinner
+	            android:id="@+id/spnT3B2"
+	            android:layout_width="75dp"
+	            android:layout_height="wrap_content"/>
+	            
+
+	        <Spinner
+	            android:id="@+id/spnT3B3"
+	            android:layout_width="75dp"
+	            android:layout_height="wrap_content"/>
+	        
+	        <EditText 
+	            
+	            android:id="@+id/etR3"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:inputType="numberDecimal"/>
+	        </LinearLayout>
+	        <LinearLayout 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="horizontal">
+	        	<TextView 
+	        	    android:layout_width="wrap_content"
+	        	    android:layout_height="wrap_content"
+	        	    android:text="Pontuação Total:"/>
+
+		        <EditText
+		            android:id="@+id/etPontuacaoFinal"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:singleLine="true" 
+		            android:inputType="numberDecimal"/>
+
+		   </LinearLayout>
+	        <Button 
+		        android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:id="@+id/btSalvarER"
+	            android:text="Salvar"/>
+        </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<openerp>
+	<data>
+		<!-- CADASTRAR ALUNO - Action -->
+		<record id="cadastro_aluno_action" model="ir.actions.act_window">
+			<field name="name"> Alunos </field>
+			<field name="res_model">comps.aluno</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+				Clique para cadastrar um novo aluno
+				</p>
+			</field>
+		</record>
+		<!-- VIEW ALUNO - Action -->
+		<record id="view_aluno_action" model="ir.actions.act_window">
+			<field name="name">Aluno</field>
+			<field name="res_model">comps.aluno</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('id','=',uid)]</field>
+		</record>
+		<!-- VIEW AVALIADOR - Action -->
+		<record id="view_av_aluno_action" model="ir.actions.act_window">
+			<field name="name">Alunos</field>
+			<field name="res_model">comps.aluno</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('turma_ids.avaliador_ids.id','=',uid)]</field>
+		</record>
+				<!-- CADASTRAR ALUNO - tree -->
+		<record id="cadastro_usuario_tree" model="ir.ui.view">
+			<field name="name">Alunos</field>
+			<field name="model">comps.aluno</field>
+			<field name="arch" type="xml">
+				<tree string="usuarios">
+					<field name="name"/>
+					<field name="escola_ids"/>
+					<field name="turma_ids"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- CADASTRAR ALUNO - form -->
+		<record id="cadastro_aluno_form" model="ir.ui.view">
+			<field name="name"> Cadastrar Aluno </field>
+			<field name="model">comps.aluno</field>
+			<field name="priority" eval="0"/>
+			<field name="arch" type="xml">
+				<form string="Users" version="7.0">
+					<sheet>
+						<field name="id" invisible="1"/>
+						<field name="image" widget="image" class="oe_avatar oe_left" options="{&quot;preview_image&quot;: &quot;image_medium&quot;}"/>
+						<div class="oe_title">
+							<label for="name" class="oe_edit_only"/>
+							<h1><field name="name"/></h1>
+							<field name="email" invisible="1"/>
+							<label for="login" class="oe_edit_only" string="E-mail"/>
+							<h2>
+								<field name="login" placeholder="email@yourcompany.com"/>
+							</h2>
+							<label for="new_password" class="oe_edit_only" string="Senha"/>
+							<h2>
+								<field name="new_password" password="True"/>
+							</h2>                        
+						</div>
+						<notebook>
+							<page string="Dados Pessoais">
+								<group>
+									<group string="Escola">
+										<field name="escola_ids"/>
+										<field name="turma_ids" domain="[('escola_id','=',escola_ids)]"/>
+									</group>
+									<group string="Informações Pessoais" >
+										<field name="genero"/>
+										<field name="data_nascimento" class="data"/>
+										<field name="idade" attrs="{'invisible':[('data_nascimento', '=',False)]}" />
+										<!--	<field name="rg" attrs="{'required' : [('tipo_usuario','=','p')] }" /> -->
+									</group>
+								</group>
+								<group>
+									<group string="Dados do responsável">
+										<field name="responsavel1" />
+										<field name="responsavel2" />
+										<field name="telefone_responsavel" class="telefone"/>
+										<field name="email_responsavel" />
+										<field name="observacao" string="Observações sobre o aluno"/>
+									</group>
+									<group string="Contato" >
+										<field name="celular" class="telefone" placeholder="ex: (82) 9123-4351"/>
+										<field name="endereco" required="1" placeholder="ex: Rua. 1"/>
+										<field name="numero" required="1"/>
+										<field name="complemento" placeholder="Ap. 201"/>
+										<field name="bairro" required="1"/>
+										<field name="cidade" required="1"/>
+										<field name="estado" required="1"/>
+										<field name="groups_id" invisible="1" nolabel="1"/>
+									</group>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<menuitem action="cadastro_aluno_action" id="menu_cadastro_aluno" 
+			parent="menu_configuracoes" 
+			groups="base.comps_instituicao,base.comps_admin"/>
+		<!-- Viualização Personalizada do aluno -->
+		<menuitem action="view_aluno_action" id="menu_view_aluno" 
+			parent="menu_configuracoes" 
+			groups="base.comps_aluno"/>
+		<menuitem action="view_av_aluno_action" id="menu_view_aluno" 
+			parent="menu_configuracoes" 
+			groups="base.comps_avaliador"/>
+	</data>
+</openerp>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Avaliações>Aptidão Física>Corrida 25m" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="10dp" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" >
+
+        <Button
+            android:id="@+id/btResetar"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Resetar" />
+
+        <Button
+            android:id="@+id/btSalvar"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Salvar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60sp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+         <com.comps.util.Chronometer
+                android:id="@+id/chronometerCo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                
+                android:textSize="40dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="10dip" >
+
+        <Button
+            android:id="@+id/btIniciarCo"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Iniciar" />
+
+        <Button
+            android:id="@+id/btParar"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Parar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" >
+    </LinearLayout>
+
+</LinearLayout>

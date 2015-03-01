@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Comps</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="numero_avaliacao">Número da Avaliação</string>
+    <string name="entrar">Entrar</string>
+    <string name="antropometria">Antropometria</string>
+    <string name="apt_fisica">Aptidão Física</string>
+    <string name="ktk">KTK</string>
+    <string name="sincronizar">Sincronizar</string>
+    <string name="avaliacoes">Avaliações</string>
+    <string name="senha">Senha</string>
+    <string name="usuario">Nome do usuário</string>
+    <string name="labelMedidasCorporais">Avaliações>Antropometria>Medidas Corporais</string>
+    <string name="labelMassaCorporal">Massa Corporal (kg)</string>
+    <string name="labelEstatura">Estatura (cm)</string>
+    <string name="labelAlturaSentado">Altura Sentado (cm)</string>
+    <string name="labelEnvergadura">Envergadura (cm)</string>
+    <string name="botaoSalvar">Salvar</string>
+    <string name="labelAptFisica">Avaliações>Aptidão Física>Abdominais</string>
+    <string name="labelReiniciar">Reiniciar</string>
+    <string name="labelAbdominais">"Abdominais: "</string>
+    <string name="botaoIniciar">Iniciar</string>
+    <string name="labelZero">0</string>
+    <string name="stEscola">Escola</string>
+    <string name="selectEscola">Escolha uma escola</string>
+    <string name="spTurma">Escolha a turma</string>
+    <string name="entrarOnLine">Entrar online</string>
+    <string name="entrarOffLine">Entrar offline</string>
+    <string name="tvEscolherAluno">Escolha o aluno</string>
+    <string name="btNaoListado">Não Listado</string>
+    <string name="btAvancar">Avançar</string>
+    <string name="btSincronizar1">Sincronizar</string>
+    <string name="tvOutrasAcoes">Outras Ações</string>
+    <string name="app_name2">CoMPS</string>
+    <string name="title_activity_nao_listado">Não Listado</string>
+    <string name="action_settings">Settings</string>
+    <string name="tvNomeDaEscola">Nome da Escola</string>
+    <string name="tvSerie">Série</string>
+    <string name="tvTurma">Turma</string>
+    <string name="tvAno">Ano</string>
+    <string name="tvNomeDoAluno">Nome do Aluno</string>
+    <string name="menu_conexao">Conexão</string>
+    <string name="tvConfigConexao">Configurações de conexão</string>
+    <string name="tvUrl">Digite a URL do servidor</string>
+    <string name="tvHttp">http://</string>
+    <string name="labelBanco">Nome do banco de dados</string>
+    <string name="labelBanco0">Nome do banco de dados (padrão: comps)</string>
+
+</resources>

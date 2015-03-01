@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim:fdn=3:
+-->
+<openerp>
+    <data>
+		<template id="assets_backend" name="comps assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+            	<script type="text/javascript" src="/COMPS/static/src/js/jquery.maskedinput.min.js"></script>
+            	<link rel="stylesheet" href="/COMPS/static/src/css/comps.css"/>
+            </xpath>
+        </template>        
+    </data>
+</openerp>

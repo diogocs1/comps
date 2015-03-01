@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<openerp>
+    <data>
+    	<record id="comps_avaliacoes_pendentes_tree_view" model="ir.ui.view">
+			<field name="name">Avaliações pendentes</field>
+			<field name="model">comps.avaliacoes_pendentes</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Avaliações Pendentes">
+					<field name="detalhes" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="comps_avaliacoes_pendentes_form_view" model="ir.ui.view">
+			<field name="name">Avaliações pendentes</field>
+			<field name="model">comps.avaliacoes_pendentes</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="OpenERP Version 7" version="7.0">
+					<header>
+						<button string="Reenviar" type="Object" name="reenviar" />
+					</header>
+					<sheet>
+						<group string="Avaliações pendentes">
+							<group>
+								<field name="avaliador_id" attrs="{'readonly':[('avaliador_id','!=',False)]}" groups="base.comps_avaliador,base.comps_instituicao" required="1"/>
+								<field name="escola_id" domain="[('avaliador_ids.id','=',avaliador_id)]" required="1"/>
+								<field name="turma_id" domain="[('avaliador_ids.id','=',avaliador_id),('escola_id','=',escola_id)]" required="1"/>
+								<field name="aluno_id" domain="[('turma_ids','=',turma_id),('turma_ids.avaliador_ids.id','=',avaliador_id)]" required="1"/>
+							</group>
+							<group>
+								<field name="detalhes" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_comps_avaliacoes_pendentes_tree_view">
+			<field name="name">Avaliações pendentes</field>
+			<field name="res_model">comps.avaliacoes_pendentes</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('avaliador_id','=',uid)]</field>
+			<field name="context">{}</field>
+		</record>
+
+    	<menuitem 
+    	id="comps_avaliacoes_pendentes_menu_root" 
+    	name="Avaliações Pendentes" 
+    	groups="base.comps_avaliador,base.comps_instituicao,base.comps_admin"
+    	action="action_comps_avaliacoes_pendentes_tree_view"
+    	parent="menu_avaliacoes"
+    	sequence="89"/>
+    
+    </data>
+</openerp>

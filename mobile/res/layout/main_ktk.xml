@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+    
+    <LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+	<TextView 
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:text="Avaliações>KTK"/>
+	    
+	</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btEquilibrioRetaguarda"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Equilíbrio à retaguarda" />
+
+        <Button
+            android:id="@+id/btSaltosLaterais15"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Saltos laterais (15s)" />
+
+        <Button
+            android:id="@+id/btTransposicaoLaterais20"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Transposição lateral (20s)" />
+        
+        <Button
+            android:id="@+id/btSaltosMonopedais"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Saltos monopedais" />
+
+    </LinearLayout>
+
+   
+
+</RelativeLayout>

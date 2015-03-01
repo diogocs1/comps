@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvConfigConexao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/avaliacoes"/>
+
+        <Button
+            android:id="@+id/btAntropometria"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.32"
+            android:text="@string/antropometria" />
+
+        <Button
+            android:id="@+id/btAptidaoFisica"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/apt_fisica" />
+
+        <Button
+            android:id="@+id/btKTK"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/ktk" />
+
+        <Button
+            android:id="@+id/btSincronizar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/sincronizar" />
+    </LinearLayout>
+
+</RelativeLayout>

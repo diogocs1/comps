@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<openerp>
+	<data>
+		<!-- CADASTRAR ESCOLA - Action -->
+		<record id="cadastro_escola_action" model="ir.actions.act_window">
+			<field name="name"> Escolas </field>
+			<field name="res_model">comps.escola</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+	        	<p class="oe_view_nocontent_create">
+	            Clique para cadastrar uma nova escola
+	        	</p>
+				<p>
+				Clique em Menu ao lado para ver as opções
+				</p>
+			</field>
+		</record>
+		<!-- VIEW ESCOLA - Action -->
+		<record id="view_escola_action" model="ir.actions.act_window">
+			<field name="name"> Escolas </field>
+			<field name="res_model">comps.escola</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain"> [('res_users_id.id','=',uid)] </field>
+		</record>
+		<!-- CADASTRAR ESCOLA - tree -->
+		<record id="cadastro_escola_tree" model="ir.ui.view">
+			<field name="name">Escolas</field>
+			<field name="model">comps.escola</field>
+			<field name="arch" type="xml">
+				<tree string="Escolas">
+					<field name="name"/>
+					<field name="telefone" />
+					<field name="email" />
+					<field name="cidade" />
+				</tree>
+			</field>
+		</record>
+		
+		<!-- CADASTRAR ESCOLA - form -->
+		<record id="cadastro_escola_form" model="ir.ui.view">
+			<field name="name"> Cadastrar Escola </field>
+			<field name="model">comps.escola</field>
+			<field name="priority" eval="0"/>
+			<field name="arch" type="xml">
+				<form string="Escola" version="7.0">
+                    <sheet>
+                    	<group string="Dados Gerais">
+							<group>
+                    			<field string="Nome da Escola" name="name" required="1"/>
+								<field name="telefone" class="telefone" placeholder="ex: (82) 9123-4351" />
+								<field name="email" />
+							</group>
+							<group>
+								<field string="Usuário" name="login"/>
+								<field string="Senha" password="1" name="new_password"/>
+							</group>
+                    	</group>
+						<group string="Localização">
+							<group>
+								<field name="endereco" />
+								<field name="complemento" />
+								<field name="numero" class="numero"/>
+							</group>
+							<group>
+								<field name="bairro" />
+								<field name="cidade" />
+								<field name="estado" />
+							</group>
+						</group>
+						<notebook>
+							<page string="Turmas">
+								<group class="lista-m2m">
+									<field name="turma_ids" nolabel="1"/>
+									<field name="groups_id" invisible="1" nolabel="1"/>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- CADASTRAR TURMA - tree -->
+		<record id="cadastro_turma_tree" model="ir.ui.view">
+			<field name="name">Turmas</field>
+			<field name="model">comps.turma</field>
+			<field name="arch" type="xml">
+				<tree string="Escolas">
+					<field name="name"/>
+					<field name="turno" />
+					<field name="ano" />
+				</tree>
+			</field>
+		</record>
+		
+		<!-- CADASTRAR TURMA - form -->
+		<record id="cadastro_turma_form" model="ir.ui.view">
+			<field name="name"> Cadastrar Turma </field>
+			<field name="model">comps.turma</field>
+			<field name="priority" eval="0"/>
+			<field name="arch" type="xml">
+				<form string="Escola" version="7.0">
+					<sheet>
+						<group string="Dados Gerais" class="form-reduzido">
+								<field name="serie_id"/>
+								<field name="turma_name"/>
+								<field name="turno" />
+								<field name="ano"  class="data-ano"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<menuitem action="cadastro_escola_action" id="menu_cadastro_escola" 
+			parent="menu_configuracoes"
+			groups="base.comps_admin"/>
+		<menuitem action="view_escola_action" id="menu_view_escola" 
+			parent="menu_configuracoes"
+			groups="base.comps_instituicao"/>
+		
+	</data>
+</openerp>

@@ -1,0 +1,18 @@
+#### Notas de desenvolvimento ####
+
+Hierarquia de cadastro:
+
+-Administrator, COMPS Administrador
+--> COMPS Administrador
+--> COMPS Instituição / Escola
+--> COMPS Turma
+--> COMPS Avaliador / Professor
+--> COMPS Aluno
+
+-COMPS Instituição / Escola
+--> COMPS Turma
+--> COMPS Avaliador / Professor
+--> COMPS Aluno
+
+-COMPS Avaliador / Professor
+--> COMPS Aluno

@@ -1,0 +1,42 @@
+# encoding: UTF-8
+{
+    "name":u'CoMPS',
+    'version': '1.0',
+    'category': u'Saúde',
+    'depends':[],
+    'data':[
+            'views/qweb/comps_template.xml',
+			'security/comps_security.xml',
+            'security/ir.model.access.csv',
+            'views/cadastro_usuarios_view.xml',
+            'views/cadastro_escola_view.xml',
+            'views/cadastro_avaliador_view.xml',
+            'views/cadastro_aluno_view.xml',
+            'views/avaliacao_imc_view.xml',
+            "views/avaliacao_abdominal_view.xml",
+            "views/avaliacao_perimetro_view.xml",
+            "views/avaliacao_dobras_cutaneas_view.xml",
+            "views/avaliacao_impulsao_horizontal_view.xml",
+            "views/avaliacao_sentar_alcancar_view.xml",
+            "views/avaliacao_preensao_manual_view.xml",
+            "views/avaliacao_lancamento_unilateral_view.xml",
+            "views/avaliacao_lancamento_simultaneo_view.xml",
+            "views/avaliacao_corrida_25m_view.xml",
+            "views/avaliacao_shutllerun_10x5m_view.xml",
+            "views/avaliacao_shutllerun_20m_view.xml",
+            "views/avaliacao_equilibrio_retaguarda_view.xml",
+            "views/avaliacao_saltos_laterais_view.xml",
+            "views/avaliacao_transposicao_lateral_view.xml",
+            "views/avaliacao_saltos_monopedais_perna_direita_view.xml",
+            "views/avaliacoes_pendentes_view.xml",
+            ],
+    'css': [
+            'static/src/css/*.css',
+            ],
+    'js': [
+            'static/src/js/*.js'
+            ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}

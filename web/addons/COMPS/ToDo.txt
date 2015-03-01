@@ -1,0 +1,12 @@
+#### ToDo List ####
+
+-- Visualizações Personalizadas
+-- Adicionar usuários nos grupos
+-- Recriar visualização de dados pessoais
+-- inserir domínio nos campos relacionais dependentes (Escola - Turma, etc)
+-- implementar Avaliação IMC
+---- Filtrar relações IMC
+	 Configurar Regras
+Validar todos os campos
+Resolver problema com o campo "new_password"
+Teste!

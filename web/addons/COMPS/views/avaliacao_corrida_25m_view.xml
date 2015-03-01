@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<openerp>
+    <data>
+    	<record id="comps_corrida_25m_tree_view" model="ir.ui.view">
+			<field name="name">Corrida 25m</field>
+			<field name="model">comps.corrida_25m</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Teste Corrida 25m">
+					<field name="name" />
+					<field name="aluno_id" />
+					<field name="escola_id" />
+					<field name="turma_id" />
+					<field name="tempo" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="comps_corrida_25m_form_view" model="ir.ui.view">
+			<field name="name">Corrida 25m</field>
+			<field name="model">comps.corrida_25m</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="OpenERP Version 7" version="7.0">
+					<header>
+						
+					</header>
+					<sheet>
+						<group string="Corrida 25m">
+							<group>
+								<field name="avaliador_id" attrs="{'readonly':[('avaliador_id','!=',False)]}" groups="base.comps_avaliador,base.comps_instituicao"/>
+								<field name="escola_id" domain="[('avaliador_ids.id','=',avaliador_id)]"/>
+								<field name="turma_id" domain="[('avaliador_ids.id','=',avaliador_id),('escola_id','=',escola_id)]"/>
+								<field name="aluno_id" domain="[('turma_ids','=',turma_id),('turma_ids.avaliador_ids.id','=',avaliador_id)]"/>
+							</group>
+							<group>
+								<field name="tempo" />
+								<field name="create_date" readonly="1"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="comps_corrida_25m_search_view" model="ir.ui.view">
+			<field name="name">Corrida 25m</field>
+			<field name="model">comps.corrida_25m</field>
+			<field name="arch" type="xml">
+				<search string="Search">
+					<field name="name" string="Name" filter_domain="[()]" />
+					<field name="avaliador_id" string="Name" filter_domain="[()]" />
+					<field name="escola_id" string="Name" filter_domain="[()]" />
+					<field name="turma_id" string="Name" filter_domain="[()]" />
+					<field name="aluno_id" string="Name" filter_domain="[()]" />
+					<field name="create_date" string="Name" filter_domain="[()]" />
+					<field name="tempo" />
+					<group expand="0" string="Agrupar por...">
+						<filter string="Avaliador" domain="[]" context="{'group_by':'avaliador_id'}" />
+						<filter string="Escola" domain="[]" context="{'group_by':'escola_id'}" />
+						<filter string="Turma" domain="[]" context="{'group_by':'turma_id'}" />
+						<filter string="Aluno" domain="[]" context="{'group_by':'aluno_id'}" />
+						<filter string="Data" domain="[]" context="{'group_by':'create_date'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+		<!-- GRAPH VIEW - corrida_25m 
+		<record model="ir.ui.view" id="comps_corrida_25m_view_graph">
+			<field name="name">comps.corrida_25m</field>
+			<field name="model">comps.corrida_25m</field>
+			<field name="arch" type="xml">
+				<graph string="Estatísticas" type="pie">
+					<field name="state" />
+				</graph>
+			</field>
+		</record>
+		-->
+		
+        <record model="ir.actions.act_window" id="action_comps_nova_corrida_25m_form_view">
+            <field name="name">Nova avaliação</field>
+            <field name="res_model">comps.corrida_25m</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="comps_corrida_25m_form_view"/>
+        </record>
+
+		<record model="ir.actions.act_window" id="action_comps_corrida_25m_tree_view">
+			<field name="name">Corrida 25m</field>
+			<field name="res_model">comps.corrida_25m</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">graph,tree,form</field>
+			<field name="search_view_id" ref="comps_corrida_25m_search_view" />
+			<!-- <field name="domain">[('field_name','condition',criteria)]</field> -->
+			<field name="context">{}</field>
+		</record>
+
+    	<menuitem 
+    	id="comps_corrida_25m_menu_root" 
+    	name="Corrida 25m" 
+    	groups="base.comps_avaliador,base.comps_instituicao,base.comps_admin"
+    	parent="menu_avaliacoes_aptfisica"/>
+    	
+    	<menuitem 
+    	id="comps_nova_corrida_25m_menu" 
+    	name="Nova Avaliação" 
+    	parent="comps_corrida_25m_menu_root" 
+    	action="action_comps_nova_corrida_25m_form_view"
+    	sequence="1"/>
+    	
+    	<menuitem 
+    	id="comps_corrida_25m_menu" 
+    	name="Avaliações" 
+    	parent="comps_corrida_25m_menu_root" 
+    	groups="base.comps_avaliador,base.comps_instituicao,base.comps_admin"
+    	action="action_comps_corrida_25m_tree_view"
+    	sequence="0"/>
+    	<!--
+    	<menuitem 
+    	id="comps_corrida_25m_regra_menu" 
+    	name="Regra de classificação" 
+    	parent="comps_corrida_25m_menu_root" 
+    	groups="base.comps_admin"
+    	action="action_comps_corrida_25m_regra_tree_view"
+    	sequence="2"/>
+    	-->
+    
+    </data>
+</openerp>

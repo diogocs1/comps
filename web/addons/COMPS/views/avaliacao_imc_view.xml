@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<openerp>
+	<data>
+		<!-- MEDIDAS CORPORAIS HOME - Action -->
+		<record id="cadastro_imc_action" model="ir.actions.act_window">
+			<field name="name"> Avaliações</field>
+			<field name="res_model">comps.imc</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">graph,tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+				Clique para cadastrar uma nova Avaliação IMC
+				</p>
+				<p> ou </p>
+				<p>
+				Clique em "Menu" ao lado para ver as opções
+				</p>
+			</field>
+		</record>
+
+
+		
+		<!-- CADASTRAR IMC - tree -->
+		<record id="cadastro_imc_tree" model="ir.ui.view">
+			<field name="name">Medidas Corporais</field>
+			<field name="model">comps.imc</field>
+			<field name="arch" type="xml">
+				<tree string="Escolas">
+					<field name="avaliador_id"/>
+					<field name="aluno_id" />
+					<field name="escola_id" />
+					<field name="turma_id" />
+				</tree>
+			</field>
+		</record>
+		
+		<!-- CADASTRAR IMC - form -->
+		<record id="cadastro_imc_form" model="ir.ui.view">
+			<field name="name"> Cadastrar Medidas Corporais </field>
+			<field name="model">comps.imc</field>
+			<field name="priority" eval="0"/>
+			<field name="arch" type="xml">
+				<form string="Medidas Corporais" version="7.0">
+					<header>
+						<field name="state" widget="statusbar" />
+					</header>				
+					<sheet>
+						<group string="Medidas Corporais">
+						    <group>
+								<field name="avaliador_id" attrs="{'readonly':[('avaliador_id','!=',False)]}" groups="base.comps_avaliador,base.comps_instituicao,base.comps_admin"/>
+								<field name="escola_id" domain="[('avaliador_ids.id','=',avaliador_id)]"/>
+								<field name="turma_id" domain="[('avaliador_ids.id','=',avaliador_id),('escola_id','=',escola_id)]"/>
+								<field name="aluno_id" domain="[('turma_ids','=',turma_id),('turma_ids.avaliador_ids.id','=',avaliador_id)]"/>
+							</group>
+							<group>
+								<field name="massa" string="massa (em Kg)"/>
+								<field name="estatura" string="estatura (cm)" />
+								<field name="altura_sentado" />
+								<field name="envergadura" />
+							</group>
+							<group string="Outras informações">
+							    <field name="imc" />
+								<field name="state"  readonly="1"/>
+								<field name="create_date" readonly="1"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<!-- GRAPH VIEW - Medidas Corporais -->
+		<record model="ir.ui.view" id="comps_imc_view_graph">
+			<field name="name">comps.imc</field>
+			<field name="model">comps.imc</field>
+			<field name="arch" type="xml">
+				<graph string="Estatísticas" type="pie">
+					<field name="state" />
+				</graph>
+			</field>
+		</record>
+		<!-- SEARCH VIEW - Medidas Corporais -->
+		 <record id="comps_imc_search_view" model="ir.ui.view">
+            <field name="name">comps.imc.search</field>
+            <field name="model">comps.imc</field>
+            <field name="arch" type="xml">
+				<search string="Search">
+					<field name="name" string="Nome" filter_domain="[()]"/>
+					<field name="massa" string="Massa" />
+					<field name="estatura" />
+					<field name="imc" />
+					<field name="escola_id" />
+					<field name="aluno_id" />
+					<field name="avaliador_id" />
+					<field name="turma_id" />
+					<field name="state" string="Classificação"/>
+					<group expand="0" string="Agrupar por...">
+						<filter string="Classificação" domain="[]" context="{'group_by':'state'}"/>
+					</group>
+  				</search>
+            </field>
+        </record>
+		<!-- MEDIDAS CORPORAIS FORM - Action -->
+        <record model="ir.actions.act_window" id="action_medidas_corporais_form_view">
+            <field name="name">Nova Avaliação</field>
+            <field name="res_model">comps.imc</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="cadastro_imc_form"/>
+        </record>
+		<!-- CADASTRAR REGRAS - tree -->
+		<record id="cadastro_regras_tree" model="ir.ui.view">
+			<field name="name">Regras</field>
+			<field name="model">comps.imc.regras</field>
+			<field name="arch" type="xml">
+				<tree string="Regra">
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+		<!-- CADASTRAR REGRAS - form -->
+		<record id="cadastro_regras_form" model="ir.ui.view">
+			<field name="name"> Cadastrar Medidas Corporais </field>
+			<field name="model">comps.imc.regras</field>
+			<field name="priority" eval="0"/>
+			<field name="arch" type="xml">
+				<form string="IMC" version="7.0">
+					<sheet>
+						<div class="bs-callout bs-callout-warning">
+							<p>Os valores informados estão em Kg/m²</p>
+						</div>
+						<group string="Reagras para o IMC">
+							<group string="Nome / Identificação">
+								<field name="name" string="Regra"/>
+							</group>
+							<group string="Magreza">
+								<field name="magreza1" string="De:"/>
+								<field name="magreza2" string="Até:"/>
+							</group>
+							<group string="Normal">
+								<field name="Normal1" string="De:"/>
+								<field name="Normal2" string="Até:"/>
+							</group>
+							<group string="sobrepeso">
+								<field name="sobrepeso1" string="De:"/>
+								<field name="sobrepeso2" string="Até:" />
+							</group>
+							<group string="Obesidade">
+								<field name="obesidade1" string="De:"/>
+								<field name="obesidade2" string="Até:" />
+							</group>
+							<group string="Obesidade grave">
+								<field name="grave1" string="De:"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- CADASTRAR REGRAS - Action -->
+		<record id="cadastro_regras_action" model="ir.actions.act_window">
+			<field name="name"> Regra de classificação </field>
+			<field name="res_model">comps.imc.regras</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem 
+		    name="Medidas Corporais" 
+		    id="imc_root" 
+		    parent="menu_avaliacoes_antropometria" />
+		
+		<menuitem 
+		    action="cadastro_imc_action" 
+		    id="menu_cadastro_imc"
+		    name="Avaliações"
+		    sequence="0" 
+			parent="imc_root" 
+			groups="base.comps_avaliador,base.comps_instituicao,base.comps_admin"/>
+		
+		<menuitem 
+		    id="medidas_corporais_form_menu" 
+		    name="Nova Avaliação"
+		    sequence="1" 
+		    parent="imc_root" 
+		    action="action_medidas_corporais_form_view"/>
+		
+		<menuitem 
+		    action="cadastro_regras_action" 
+		    id="menu_cadastro_imc_regras"
+		    sequence="2" 
+			parent="imc_root" 
+			groups="base.comps_admin"/>
+		
+	</data>
+</openerp>

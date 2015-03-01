@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+	<RelativeLayout 
+	    
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+	    
+	
+	    <LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent">
+		    <TextView 
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:text="Avaliações>Aptidão Física"/>
+	
+		 </LinearLayout>
+	
+	    <LinearLayout
+	        android:id="@+id/linearLayout1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:layout_centerHorizontal="true"
+	        android:paddingTop="30dp"
+	        android:orientation="vertical" >
+	
+	        <Button
+	            android:id="@+id/btImpulsaoHorizontal"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:text="Impulsão horizontal" />
+			
+			<Button 
+			    android:id="@+id/btSentarAlcancar"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:text="Sentar e alcançar" />
+			 
+	        <Button
+	            android:id="@+id/btPreensaoManual"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:text="Preensão manual" />
+	
+	        <Button
+	            android:id="@+id/btAbdominais"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:text="Abdominais" />
+	        
+			<Button
+	            android:id="@+id/btLancamento"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:text="Lançamento unilateral" />
+			<Button 
+			   android:id="@+id/btLancamentoSimultaneo"
+	           android:layout_width="match_parent"
+	           android:layout_height="match_parent"
+	           android:text="Lançamento simultaneo" /> 
+			<Button
+	            android:id="@+id/btCorrida"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:text="Corrida 25m" />
+			<Button
+	            android:id="@+id/btShuttle_10_5"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:text="10x5m Shuttle-run" />
+			<Button
+	            android:id="@+id/btShuttle_20m"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:text="20m Shuttle-run" />
+	    </LinearLayout>
+	
+	</RelativeLayout>
+</ScrollView>
